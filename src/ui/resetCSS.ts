@@ -4,7 +4,7 @@ export const resetCSS = css`
   body {
   }
   * {
-    font-family: "Exo 2", sans-serif;
+    font-family: "Noto Sans", sans-serif;
     padding: 0;
     margin: 0;
     border: 0;

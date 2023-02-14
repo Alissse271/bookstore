@@ -2,6 +2,7 @@ import { css } from "styled-components";
 import { Media } from "./media";
 
 const H1 = css`
+  font-family: "Bebas Neue", cursive;
   font-weight: 700;
   font-size: 56px;
   line-height: 114%;
@@ -12,6 +13,7 @@ const H1 = css`
   }
 `;
 const H2 = css`
+  font-family: "Bebas Neue", cursive;
   font-weight: 700;
   font-size: 40px;
   line-height: 150%;
@@ -22,6 +24,7 @@ const H2 = css`
   }
 `;
 const H3 = css`
+  font-family: "Bebas Neue", cursive;
   font-weight: 700;
   font-size: 24px;
   line-height: 133%;
