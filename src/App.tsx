@@ -1,9 +1,6 @@
-import { Footer } from "components";
+import { RouterProvider } from "react-router-dom";
+import { Router } from "router";
 
 export const App = () => {
-  return (
-    <div>
-      <Footer />
-    </div>
-  );
+  return <RouterProvider router={Router} />;
 };
