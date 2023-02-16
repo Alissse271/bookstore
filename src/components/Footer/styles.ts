@@ -5,6 +5,7 @@ const StyledFooter = styled.div`
   display: grid;
   grid-template-columns: repeat(2, auto);
   justify-content: space-between;
+  flex: 0 0 auto;
 
   padding: 35px 0;
 

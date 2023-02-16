@@ -1,10 +1,11 @@
-import { Subscription } from "components";
+import { ResetForm, Subscription } from "components";
 
 export const HomePage = () => {
   return (
     <div>
       HomePage
-      <Subscription />
+      <ResetForm />
+      {/* <Subscription /> */}
     </div>
   );
 };

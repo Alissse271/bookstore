@@ -1,3 +1,10 @@
+import { ResetForm } from "components";
+import { Container } from "./styles";
+
 export const ResetPasswordPage = () => {
-  return <div>ResetPasswordPage</div>;
+  return (
+    <Container>
+      <ResetForm />
+    </Container>
+  );
 };

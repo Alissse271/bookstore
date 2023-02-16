@@ -29,6 +29,13 @@ const H3 = css`
   font-size: 24px;
   line-height: 133%;
 `;
+const H4 = css`
+  font-family: "Bebas Neue", cursive;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+`;
 const S1 = css`
   font-weight: 700;
   font-size: 18px;
@@ -69,4 +76,4 @@ const B4 = css`
   line-height: 200%;
 `;
 
-export const Typography = { H1, H2, H3, S1, S2, S3, B1, B2, B3, B4 };
+export const Typography = { H1, H2, H3, H4, S1, S2, S3, B1, B2, B3, B4 };

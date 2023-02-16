@@ -1,12 +1,14 @@
 import { Header, Footer } from "components";
 import { Outlet } from "react-router-dom";
-import { StyledMainTemplate } from "./styles";
+import { StyledMainTemplate, Container } from "./styles";
 
 export const MainTemplate = () => {
   return (
     <StyledMainTemplate>
       <Header />
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
       <Footer />
     </StyledMainTemplate>
   );
