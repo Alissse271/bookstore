@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Color, Media, Typography } from "ui";
+import { Media, Typography } from "ui";
+import { inputStyles } from "ui/inputStyles";
 
 const SearchContainer = styled.form`
   position: relative;
@@ -17,24 +18,7 @@ const StyledSearch = styled.input`
   padding: 16px 64px 16px 16px;
 
   ${Typography.B4};
-  color: ${Color.SECONDARY};
-
-  border: 1px solid ${Color.GRAY};
-
-  &::placeholder {
-    ${Typography.B4};
-    color: ${Color.SECONDARY};
-  }
-  &:focus-visible {
-    outline: none;
-  }
-  &:disabled {
-    background: ${Color.GRAY};
-    border: 1px solid ${Color.SECONDARY};
-  }
-  &:invalid {
-    border: 1px solid ${Color.RED};
-  }
+  ${inputStyles};
 `;
 const SearchButton = styled.button`
   position: absolute;
@@ -47,6 +31,8 @@ const SearchButton = styled.button`
   height: 32px;
 
   background-color: transparent;
+
+  cursor: pointer;
 `;
 
 export { SearchContainer, StyledSearch, SearchButton };

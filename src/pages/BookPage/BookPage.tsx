@@ -1,3 +1,10 @@
+import { Subscription } from "components";
+
 export const BookPage = () => {
-  return <div>BookPage</div>;
+  return (
+    <div>
+      BookPage
+      <Subscription />
+    </div>
+  );
 };

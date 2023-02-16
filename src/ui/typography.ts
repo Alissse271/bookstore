@@ -36,6 +36,7 @@ const S1 = css`
   letter-spacing: 0.05em;
 `;
 const S2 = css`
+  font-weight: 400;
   font-size: 18px;
   line-height: 156%;
 
