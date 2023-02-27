@@ -1,11 +1,11 @@
-import { ResetForm, Subscription } from "components";
+import { SignInForm, Subscription } from "components";
 
 export const HomePage = () => {
   return (
     <div>
       HomePage
-      <ResetForm />
-      {/* <Subscription /> */}
+      <SignInForm />
+      <Subscription />
     </div>
   );
 };

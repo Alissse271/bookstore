@@ -5,6 +5,19 @@ import { Header } from "./Header/Header";
 import { MenuButton } from "./MenuButton/MenuButton";
 import { ResetForm } from "./ResetForm/ResetForm";
 import { Search } from "./Search/Search";
+import { SignInForm } from "./SignInForm/SignInForm";
+import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { Subscription } from "./Subscription/Subscription";
 
-export { Footer, Search, Header, MenuButton, Button, Cliploader, Subscription, ResetForm };
+export {
+  Footer,
+  Search,
+  Header,
+  MenuButton,
+  Button,
+  Cliploader,
+  Subscription,
+  ResetForm,
+  SignInForm,
+  SignUpForm,
+};

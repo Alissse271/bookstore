@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Media } from "ui";
 
-const Container = styled.form`
+const Container = styled.div`
   height: 100%;
   display: flex;
   align-items: center;

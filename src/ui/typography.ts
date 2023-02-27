@@ -75,5 +75,10 @@ const B4 = css`
   font-size: 16px;
   line-height: 200%;
 `;
+const B5 = css`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 230%;
+`;
 
-export const Typography = { H1, H2, H3, H4, S1, S2, S3, B1, B2, B3, B4 };
+export const Typography = { H1, H2, H3, H4, S1, S2, S3, B1, B2, B3, B4, B5 };
