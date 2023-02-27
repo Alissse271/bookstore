@@ -1,6 +1,8 @@
 import { Button } from "components";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ROUTE } from "router";
+import { useAppDispatch, useAppSelector, getUserInfo, signInUser } from "store";
 import { emailValidation, passwordValidation } from "utils";
 import {
   StyledForm,
@@ -18,6 +20,7 @@ interface IFormValues {
 }
 
 export const SignInForm = () => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const {
     register,
     reset,
@@ -26,7 +29,19 @@ export const SignInForm = () => {
     formState: { errors },
   } = useForm<IFormValues>();
 
-  const onSubmit: SubmitHandler<IFormValues> = () => {};
+  const dispatch = useAppDispatch();
+  const { isLoading } = useAppSelector(getUserInfo);
+
+  const onSubmit: SubmitHandler<IFormValues> = (userInfo) => {
+    dispatch(signInUser(userInfo))
+      .unwrap()
+      .then(() => {
+        reset();
+      })
+      .catch((error) => {
+        setErrorMessage(error);
+      });
+  };
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -52,10 +67,11 @@ export const SignInForm = () => {
             />
           </StyledLabel>
           {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+          {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
           <StyledLink to={ROUTE.RESET_PASSWORD}>Forgot password?</StyledLink>
         </Container>
       </InputsContainer>
-      <Button primary type="submit" label="SIGN IN" />
+      <Button primary type="submit" label="SIGN IN" isLoader={isLoading} />
     </StyledForm>
   );
 };

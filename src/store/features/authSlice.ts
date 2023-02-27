@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FirebaseErrorCode, FirebaseErrorMessage, getFBErrorMessage } from "utils/firebaseErrors";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { FirebaseErrorMessage, FirebaseErrorCode, getFBErrorMessage } from "utils";
 
 interface AuthProps {
   name: string;
@@ -39,13 +39,13 @@ export const signUpUser = createAsyncThunk<
 
 export const signInUser = createAsyncThunk<
   { userEmail: string | null },
-  { email: string; name: string; password: string },
+  { email: string; password: string },
   { rejectValue: FirebaseErrorMessage }
 >("user/signInUser", async ({ email, password }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
-    const userCredential = signInWithEmailAndPassword(auth, email, password);
-    const userEmail = (await userCredential).user.email;
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const userEmail = userCredential.user.email;
     return { userEmail };
   } catch (error) {
     const firebaseError = error as { code: FirebaseErrorCode };
@@ -55,7 +55,7 @@ export const signInUser = createAsyncThunk<
 
 const authSlice = createSlice({
   name: "user",
-  initialState: initialState,
+  initialState,
   reducers: {
     getLogOutUser: (state, { payload }: PayloadAction<boolean>) => {
       state.isAuth = payload;
@@ -76,7 +76,7 @@ const authSlice = createSlice({
     });
     builder.addCase(signUpUser.rejected, (state, { payload }) => {
       if (payload) {
-        state.isLoading = true;
+        state.isLoading = false;
         state.isAuth = false;
         state.error = payload;
       }
@@ -94,7 +94,7 @@ const authSlice = createSlice({
     });
     builder.addCase(signInUser.rejected, (state, { payload }) => {
       if (payload) {
-        state.isLoading = true;
+        state.isLoading = false;
         state.isAuth = false;
         state.error = payload;
       }

@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { getUserInfo, signUpUser, useAppDispatch, useAppSelector } from "store";
 import { emailValidation, nameValidation, passwordValidation } from "utils";
 import {
   StyledForm,
@@ -18,15 +20,29 @@ interface IFormValues {
 }
 
 export const SignUpForm = () => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const {
     register,
     reset,
     handleSubmit,
     getValues,
+    watch,
     formState: { errors },
   } = useForm<IFormValues>();
 
-  const onSubmit: SubmitHandler<IFormValues> = () => {};
+  const dispatch = useAppDispatch();
+  const { isLoading } = useAppSelector(getUserInfo);
+
+  const onSubmit: SubmitHandler<IFormValues> = (userInfo) => {
+    dispatch(signUpUser(userInfo))
+      .unwrap()
+      .then(() => {
+        reset();
+      })
+      .catch((error) => {
+        setErrorMessage(error);
+      });
+  };
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -70,13 +86,16 @@ export const SignUpForm = () => {
             <StyledInput
               type="password"
               placeholder="Confirm your password"
-              {...register("confirmPassword", passwordValidation())}
+              {...register("confirmPassword", { required: true })}
             />
           </StyledLabel>
-          {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
+          {watch("confirmPassword") !== watch("password") && getValues("confirmPassword") ? (
+            <ErrorMessage>*password not match</ErrorMessage>
+          ) : null}
+          {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         </Container>
       </InputsContainer>
-      <StyledButton primary type="submit" label="SIGN UP" />
+      <StyledButton primary type="submit" label="SIGN UP" isLoader={isLoading} />
     </StyledForm>
   );
 };

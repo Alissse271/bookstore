@@ -1,12 +1,13 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBo_1gnCL6fb29d3RIf7Y0e2EcPzN_2k58",
-  authDomain: "bookstore-b9337.firebaseapp.com",
-  projectId: "bookstore-b9337",
-  storageBucket: "bookstore-b9337.appspot.com",
-  messagingSenderId: "339036413442",
-  appId: "1:339036413442:web:50bc8a83def1b52bd8d11b",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
+// eslint-disable-next-line no-unused-vars
 const app = initializeApp(firebaseConfig);
