@@ -1,4 +1,4 @@
-import { Subscription } from "components";
+import { SignUpForm, Subscription } from "components";
 
 export const HomePage = () => {
   return (

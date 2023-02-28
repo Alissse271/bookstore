@@ -1,6 +1,7 @@
 import { Button } from "./Button/Button";
 import { Cliploader } from "./Cliploader/Cliploader";
 import { Footer } from "./Footer/Footer";
+import { FormTabs } from "./FormTabs/FormTabs";
 import { Header } from "./Header/Header";
 import { MenuButton } from "./MenuButton/MenuButton";
 import { ResetForm } from "./ResetForm/ResetForm";
@@ -20,4 +21,5 @@ export {
   ResetForm,
   SignInForm,
   SignUpForm,
+  FormTabs,
 };

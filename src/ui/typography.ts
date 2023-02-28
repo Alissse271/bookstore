@@ -31,7 +31,7 @@ const H3 = css`
 `;
 const H4 = css`
   font-family: "Bebas Neue", cursive;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 0.05em;
