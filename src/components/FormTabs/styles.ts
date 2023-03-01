@@ -4,13 +4,12 @@ import { Color, Media, Typography } from "ui";
 const Container = styled.div`
   max-width: 544px;
   width: 100%;
-
-  ${Media.XL} {
-  }
 `;
 const StyledFormTabs = styled.div`
   display: flex;
+
   padding: 0 32px;
+
   ${Media.SM} {
     padding: 0;
   }

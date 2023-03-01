@@ -25,7 +25,7 @@ const H2 = css`
 `;
 const H3 = css`
   font-family: "Bebas Neue", cursive;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 24px;
   line-height: 133%;
 `;

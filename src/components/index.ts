@@ -1,3 +1,4 @@
+import { BookCard } from "./BookCard/BookCard";
 import { Button } from "./Button/Button";
 import { Cliploader } from "./Cliploader/Cliploader";
 import { Footer } from "./Footer/Footer";
@@ -22,4 +23,5 @@ export {
   SignInForm,
   SignUpForm,
   FormTabs,
+  BookCard,
 };
